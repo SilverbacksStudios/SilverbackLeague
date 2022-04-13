@@ -17,3 +17,26 @@
     justify-content: column;
     align-items: column ;
   }
+ 
+  .buttonSubmit {
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(4, 85, 4);
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  input[type=text] {
+    width: 29%;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    display: flex;
+  }

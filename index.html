@@ -9,16 +9,38 @@
 </head>
 <body>
     <div class="maintitle"><h1>The Silverback League</h1></div>
-    <form>  
-        Enter Name:<input type="text" name="name"/><br/>
-        <button class="buttonSubmit">Add Silverback</button>
+    <form id="myForm" class="form">  
+
+       <label for="namn">Namn</label>
+
+       <input type="text" name="Namn" id="Namn">
+
+       <button type="submit">Lägg till Silverback</button>    
     </form>  
 
-    <div class="flex-container">
-        <div class=""></div>
-        <div class=""></div>
-        <div class=""></div>
-      </div>
+    <script>
+        const myForm = document.getElementById("myForm");
+
+        myForm.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            console.log("Silverback har blivit tillagd!");
+
+            const request = new XMLHttpRequest();
+
+            request.open("post", "namn.php");
+
+            request.onload = function () {
+                console.log(request.responseText);
+            }
+
+            request.send(new FormData(myForm));
+
+
+        })
+    </script>
+    
 
 </body>
 </html>

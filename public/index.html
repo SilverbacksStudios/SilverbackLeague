@@ -36,7 +36,7 @@
         event.preventDefault();
 
         const playerName = document.querySelector('input[name="name"]').value;
-        addScore(playerName);
+        createPlayer(playerName);
       });
 
       const clearPlayers = () => {
@@ -78,8 +78,30 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            
           },
         });
+
+        const data = await res.json();
+        console.log(data);
+
+        fillPlayers(data);
+      }
+
+      async function createPlayer(playerName) {
+        const res = await fetch('/player/add?player=' + playerName, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            
+          },
+        });
+
+        if (res.ok){
+        } else {
+          
+        }
+
 
         const data = await res.json();
         console.log(data);

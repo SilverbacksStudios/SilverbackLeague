@@ -31,4 +31,18 @@ app.post("/scores/add", function (req, res) {
   res.status(200).send(scores);
 })
 
+app.post("/player/add", function (req, res){
+  if (req.query.player === undefined) {
+    return res.status(400).send("No player name given");
+    }
+  
+  if (scores[req.query.player] !== undefined){
+    return res.status(403).send("Player already exists"); 
+   } 
+   scores[req.query.player] = 0; 
+
+
+   res.status(200).send(scores);
+})
+
 app.listen(port, () => console.log("listening on port" + port))

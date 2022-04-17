@@ -32,12 +32,12 @@ app.post("/scores/add", function (req, res) {
 })
 
 app.post("/player/add", function (req, res){
-  if (req.query.player === undefined) {
+  if ((req.query.player === "") || (req.query.player === undefined)) {
     return res.status(400).send("No player name given");
     }
   
   if (scores[req.query.player] !== undefined){
-    return res.status(403).send("Player already exists"); 
+    return res.status(403).send("Player name taken"); 
    } 
    scores[req.query.player] = 0; 
 

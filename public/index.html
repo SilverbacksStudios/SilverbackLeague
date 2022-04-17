@@ -98,15 +98,14 @@
         });
 
         if (res.ok){
-        } else {
-          
-        }
-
-
-        const data = await res.json();
+          const data = await res.json();
         console.log(data);
 
         fillPlayers(data);
+        } else {
+          alert (await res.text());
+        }
+
       }
 
       async function fetchPlayers() {

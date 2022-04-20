@@ -1,5 +1,9 @@
-const express = require("express");
-const path = require("path");
+import { supabase } from "./logic2";
+import express, { static } from "express";
+import { join,dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
 
 const app = express()
 const port = 3000;
@@ -10,7 +14,7 @@ const scores = {
   jocke: 1337,
 };
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(static(join(__dirname, "public")));
 
 app.get("/scores", function (_, res) {
   res.status(200).send(scores);

@@ -32,12 +32,12 @@ function App() {
     <input
      placeholder='Name'
      value={name}
-     onChange = {e => setPlayers({ ...player, name: e.target.value})}
+     onChange={e => setPlayer({ ...player, name: e.target.value})}
      />
      <input
      placeholder='Points'
      value={points}
-     onChange={e => setPlayers({ ...player, points: e.target.value})}
+     onChange={e => setPlayer({ ...player, points: e.target.value})}
      />
      <button onClick={createPlayer}>Create Player</button>
      {  

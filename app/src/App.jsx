@@ -25,11 +25,11 @@ function App() {
     await supabase
       .from('players')
       .insert([
-        { name, points }
+        { name, points: 0}
       ])
       .single();
 
-    setPlayer({ name: "", points: "" });
+    setPlayer({ name: "", points: 0 });
     fetchPlayers();
   }
 
@@ -50,11 +50,7 @@ function App() {
         value={name}
         onChange={e => setPlayer({ ...player, name: e.target.value })}
       />
-      <input
-        placeholder='Points'
-        value={points}
-        onChange={e => setPlayer({ ...player, points: e.target.value })}
-      />
+      
       <button class="button" onClick={createPlayer}>Create Player</button>
       <div className="Players">
         {

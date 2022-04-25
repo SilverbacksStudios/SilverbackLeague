@@ -25,7 +25,7 @@ function App() {
     await supabase
       .from('players')
       .insert([
-        { name, points }
+        { name, points: 0}
       ])
       .single();
 

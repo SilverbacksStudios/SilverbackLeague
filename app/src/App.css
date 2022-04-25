@@ -2,18 +2,30 @@
   margin-top: 5rem;
   text-align: center;
 }
-h1{
+
+h3 {
+  font-size: large;
+}
+
+h1 {
   max-width: min(600px, 100%);
   margin: 0 auto;
   margin-top: 1rem;
   text-align: center;
   font-family: 'Indie Flower', cursive;
 }
+
 footer {
+  height: 100px;
+  flex-shrink: 0;
   text-align: center;
-  margin-left: auto;
-  font-family: 'Indie Flower', cursive;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: bottom;
+
 }
+
 
 img {
   height: 150px;
@@ -25,22 +37,20 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1rem;
-  
-  
-  
 }
 
 .Players {
   max-width: min(600px, 100%);
   margin: 0 auto;
   margin-top: 2rem;
-  
 }
 
 input {
-  margin: 0.5rem;
+  margin: 2rem;
   border: none;
   border-bottom: solid 1px black;
+  font-size: larger;
+  padding-right: 5rem;
 }
 
 /* CSS */
@@ -50,12 +60,12 @@ input {
   background-color: #FCFCFD;
   border-radius: 4px;
   border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   box-sizing: border-box;
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
+  font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -66,12 +76,12 @@ input {
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
+  transition: box-shadow .15s, transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow,transform;
+  will-change: box-shadow, transform;
   font-size: 18px;
 }
 

@@ -25,7 +25,7 @@ function App() {
     await supabase
       .from('players')
       .insert([
-        { name, points: 0}
+        { name, points: 0 }
       ])
       .single();
 
@@ -33,8 +33,7 @@ function App() {
     fetchPlayers();
   }
 
-  async function addPoints(player)
-  {
+  async function addPoints(player) {
     await supabase
       .from('players')
       .update({ points: player.points + 1 })
@@ -50,8 +49,8 @@ function App() {
         value={name}
         onChange={e => setPlayer({ ...player, name: e.target.value })}
       />
-      
-      <button class="button" onClick={createPlayer}>Create Player</button>
+
+      <button class="button" onClick={createPlayer}>Add Silverback</button>
       <div className="Players">
         {
           players
@@ -60,7 +59,7 @@ function App() {
               <div className='Player' key={players.id}>
                 <h3>{player.name}</h3>
                 <p>{player.points}</p>
-                <button class="button" onClick={() => addPoints(player)}>Add points</button>
+                <button class="button" onClick={() => addPoints(player)}>Add Bananas</button>
               </div>
             ))
         }

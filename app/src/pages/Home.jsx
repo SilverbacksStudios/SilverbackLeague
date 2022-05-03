@@ -1,6 +1,7 @@
 import "./Home.css";
 import { useState, useEffect } from "react";
 import { supabase } from "../supabase";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const [players, setPlayers] = useState([]);
@@ -64,6 +65,17 @@ export function Home() {
               </button>
             </div>
           ))}
+        <div>
+          <nav
+            style={{
+              borderBottom: "solid 1px",
+              paddingBottom: "1rem",
+            }}
+          >
+            <Link to="/Login">Login</Link>
+            <Link to="/Signup">Signup</Link>
+          </nav>
+        </div>
       </div>
     </div>
   );

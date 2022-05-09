@@ -12,7 +12,7 @@ h1 {
   margin: 0 auto;
   margin-top: 1rem;
   text-align: center;
-  font-family: 'Indie Flower', cursive;
+
 }
 
 footer {
@@ -65,7 +65,7 @@ input {
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono", monospace;
+
   height: 48px;
   justify-content: center;
   line-height: 1;

@@ -1,8 +1,8 @@
 import "./Home.css";
 import { useState, useEffect } from "react";
-import { supabase } from "../supabase";
+import { supabase } from "../Database/supabase";
 
-export function Home() {
+export default function Home() {
   const [players, setPlayers] = useState([]);
   const [player, setPlayer] = useState({ name: "", points: "" });
   const { name, points } = player;
@@ -15,7 +15,6 @@ export function Home() {
     const { data } = await supabase.from("players").select();
 
     setPlayers(data);
-    console.log("data: ", data);
   }
 
   async function createPlayer() {
@@ -33,7 +32,6 @@ export function Home() {
       .from("players")
       .update({ points: player.points + 1 })
       .match({ id: player.id });
-    console.log(event.timeStamp);
 
     fetchPlayers();
   }
@@ -46,7 +44,7 @@ export function Home() {
         onChange={(e) => setPlayer({ ...player, name: e.target.value })}
       />
 
-      <button class="button" onClick={createPlayer}>
+      <button className="button" onClick={createPlayer}>
         Add Silverback
       </button>
       <div className="Players">
@@ -57,7 +55,7 @@ export function Home() {
               <h3>{player.name}</h3>
               <p>{player.points}</p>
               <button
-                class="button"
+                className="button"
                 onClick={(event) => addPoints(player, event)}
               >
                 Add Bananas

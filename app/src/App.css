@@ -44,7 +44,12 @@ img {
   margin: 0 auto;
   margin-top: 2rem;
 }
-
+.Playersstart {
+  max-width: min(600px, 100%);
+  margin: 0 auto;
+  margin-top: 2rem;
+  justify-content: center;
+}
 input {
   margin: 2rem;
   border: none;

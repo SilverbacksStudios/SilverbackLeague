@@ -1,4 +1,4 @@
-import "./Home.css";
+import "../App.css";
 import { useState, useEffect } from "react";
 import { supabase } from "../Database/supabase";
 

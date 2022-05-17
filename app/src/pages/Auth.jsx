@@ -10,7 +10,7 @@ export default function Auth(){
     return(
         <div>
          <input placeholder ="Email" value={email} onChange={(e) => setEmail (e.target.value)} />
-         <input placeholder="Password" value={password} onChange={(e) => setPassword (e.target.value)} />
+         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword (e.target.value)} />
          <button onClick={() => loggain(email, password, navigate)}>logga in</button>
          <button onClick={() => skapakonto(email, password, navigate)}>skapakonto</button>
         </div>

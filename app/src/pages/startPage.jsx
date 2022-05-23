@@ -26,6 +26,7 @@ export default function startpage() {
             <p>{player.points}</p>
           </div>
         ))}
+        <button >Sign In</button>
     </div>
   );
 }

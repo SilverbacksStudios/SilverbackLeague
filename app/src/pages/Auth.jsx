@@ -1,56 +1,64 @@
 import "../App.css";
-import React, { useState } from "react";
 import { supabase } from "../Database/supabase";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Auth() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const authContext = createContext();
 
-  return (
-    <div>
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={() => loggain(email, password, navigate)}>
-        logga in
-      </button>
-      <button onClick={() => skapakonto(email, password, navigate)}>
-        skapakonto
-      </button>
-    </div>
-  );
-}
+export const Authprovider = ({ children }) => {
+  const auth = useProvideAuth();
 
-async function loggain(email, password, navigate) {
-  try {
-    const { error } = await supabase.auth.signIn({ email, password });
-    if (error) throw error;
-    alert("inloggad");
-    useHistory.push("/Home");
-  } catch (error) {
-    alert(error.message);
-  }
-}
-
-const skapakonto = async (email, password, navigate) => {
-  try {
-    const { error } = await supabase.auth.signUp({ email, password });
-    if (error) throw error;
-    alert("inloggad");
-    navigate.push("/Home");
-  } catch (error) {
-    alert(error.message);
-  }
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 };
 
-export { Auth };
+export const useAuth = () => {
+  return useContext(authContext);
+};
+
+function useProvideAuth() {
+  const [user, setUser] = useState(null);
+
+  const login = async () => {
+    try {
+      const { error } = await supabase.auth.signIn({ email, password });
+      if (error) throw error;
+      alert("inloggad");
+      useNavigate.push("/Home");
+    } catch (error) {
+      alert(error.message);
+      console.log(error);
+    }
+  };
+
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.log(error);
+    }
+
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const user = supabase.auth.user();
+    setUser(user);
+
+    const auth = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN") {
+        setUser(session.user);
+      }
+      if (event === "SIGNED_OUT") {
+        setUser(null);
+      }
+    });
+
+    return () => auth.unsubscribe();
+  }, []);
+
+  return {
+    user,
+    login,
+    logout,
+  };
+}

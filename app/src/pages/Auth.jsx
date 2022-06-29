@@ -1,13 +1,10 @@
-import "../App.css";
 import { supabase } from "../Database/supabase";
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext, createContext } from "react";
 
 const authContext = createContext();
 
-export const Authprovider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const auth = useProvideAuth();
-
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 };
 
@@ -18,16 +15,14 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-  const login = async () => {
-    try {
-      const { error } = await supabase.auth.signIn({ email, password });
-      if (error) throw error;
-      alert("inloggad");
-      useNavigate.push("/Home");
-    } catch (error) {
-      alert(error.message);
+  const login = async (email) => {
+    const { error, user } = await supabase.auth.signIn({ email });
+
+    if (error) {
       console.log(error);
     }
+
+    return { error, user };
   };
 
   const logout = async () => {
@@ -48,12 +43,13 @@ function useProvideAuth() {
       if (event === "SIGNED_IN") {
         setUser(session.user);
       }
+
       if (event === "SIGNED_OUT") {
         setUser(null);
       }
     });
 
-    return () => auth.unsubscribe();
+    return () => auth.data.unsubscribe();
   }, []);
 
   return {

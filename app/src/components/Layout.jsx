@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <header>
         <ul>
           <li>
-            <Link to={"/"}>Home</Link>
+            <Link to={"/Home"}>Home</Link>
           </li>
           {auth.user ? (
             <li>

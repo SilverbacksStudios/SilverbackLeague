@@ -1,45 +1,41 @@
-import "../App.css";
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { supabase } from "../Database/supabase";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import Layout from "../components/Layout";
+import { useAuth } from "./Auth";
 
-function Signin() {
-  const navigate = useNavigate();
+const SignIn = () => {
+  const auth = useAuth();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    const signIn = await auth.login(email);
+
+    if (signIn.error) {
+      setMessage(signIn.error.message);
+    } else {
+      setMessage("Login link has beent sent.");
+    }
+
+    setEmail("");
+  };
 
   return (
-    <div>
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={() => loggain(email, password, navigate)}>
-        logga in
-      </button>
-      <button onClick={() => skapakonto(email, password, navigate)}>
-        skapakonto
-      </button>
-    </div>
-  );
-}
+    <Layout>
+      {message && message}
+      <h1>Sign In</h1>
 
-const skapakonto = async (email, password, navigate) => {
-  try {
-    const { error } = await supabase.auth.signUp({ email, password });
-    if (error) throw error;
-    alert("inloggad");
-    navigate.push("/Home");
-  } catch (error) {
-    alert(error.message);
-  }
+      <form onSubmit={handleSignIn}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button type={"submit"}>Sign In</button>
+      </form>
+    </Layout>
+  );
 };
 
-export default Signin;
+export default SignIn;

@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Startpage from "./pages/startPage";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/Signin";
 import { AuthProvider } from "./pages/Auth";
 import ProtectedRoute from "./components/Protectedroutes";
 import { Fragment } from "react";

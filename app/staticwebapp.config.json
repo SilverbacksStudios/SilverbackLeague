@@ -10,6 +10,10 @@
         "rewrite": "./pages/Signin"
       },
       {
+        "route": "/Createuser",
+        "rewrite": "./pages/Createuser"
+      },
+      {
         "route": "/logout",
         "redirect": "/.auth/logout"
       }

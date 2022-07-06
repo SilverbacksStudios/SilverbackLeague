@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
             </li>
           ) : (
             <li>
-              <Link to={"/SignIn"}>Sign In</Link>
+              <Link to={"/Createuser"}>Sign up</Link>
             </li>
           )}
         </ul>

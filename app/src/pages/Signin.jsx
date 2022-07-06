@@ -16,7 +16,7 @@ const SignIn = () => {
     if (signIn.error) {
       setMessage(signIn.error.message);
     } else {
-      setMessage("Login link has beent sent.");
+      setMessage("You are now logged in.");
     }
 
     setEmail("");

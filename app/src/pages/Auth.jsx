@@ -16,7 +16,6 @@ function useProvideAuth() {
   const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
-    console.log("hej");
     const { error, user } = await supabase.auth.signIn(
       {
         email,
@@ -26,6 +25,19 @@ function useProvideAuth() {
         shouldCreateUser: false,
       }
     );
+
+    if (error) {
+      console.log(error);
+    }
+
+    return { error, user };
+  };
+
+  const signUp = async (email, password) => {
+    const { error, user } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
     if (error) {
       console.log(error);
@@ -65,5 +77,6 @@ function useProvideAuth() {
     user,
     login,
     logout,
+    signUp,
   };
 }

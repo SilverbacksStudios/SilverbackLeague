@@ -11,10 +11,10 @@ const createUser = () => {
   const handleCreateuser = async (e) => {
     e.preventDefault();
 
-    const signIn = await auth.login(email, password);
+    const createUser = await auth.signUp(email, password);
 
-    if (signIn.error) {
-      setMessage(signIn.error.message);
+    if (createUser.error) {
+      setMessage(createUser.error.message);
     } else {
       setMessage("Login link has beent sent.");
     }

@@ -15,8 +15,17 @@ export const useAuth = () => {
 function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-  const login = async (email) => {
-    const { error, user } = await supabase.auth.signIn({ email });
+  const login = async (email, password) => {
+    console.log("hej");
+    const { error, user } = await supabase.auth.signIn(
+      {
+        email,
+        password,
+      },
+      {
+        shouldCreateUser: false,
+      }
+    );
 
     if (error) {
       console.log(error);

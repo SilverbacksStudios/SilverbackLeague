@@ -5,12 +5,13 @@ import { useAuth } from "./Auth";
 const SignIn = () => {
   const auth = useAuth();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSignIn = async (e) => {
     e.preventDefault();
 
-    const signIn = await auth.login(email);
+    const signIn = await auth.login(email, password);
 
     if (signIn.error) {
       setMessage(signIn.error.message);
@@ -19,6 +20,7 @@ const SignIn = () => {
     }
 
     setEmail("");
+    setPassword("");
   };
 
   return (
@@ -31,6 +33,11 @@ const SignIn = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button type={"submit"}>Sign In</button>
       </form>

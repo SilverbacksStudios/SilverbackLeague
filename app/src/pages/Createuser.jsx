@@ -30,16 +30,20 @@ const createUser = () => {
 
       <form onSubmit={handleCreateuser}>
         <input
+          placeholder="Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          placeholder="Password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type={"submit"}>Create Account</button>
+        <button className="button" type={"submit"}>
+          Sign up
+        </button>
       </form>
     </Layout>
   );

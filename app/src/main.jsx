@@ -11,9 +11,6 @@ import { Fragment } from "react";
 
 ReactDOM.render(
   <Fragment>
-    <div className="bg-image"></div>
-    <img name="logo" src="src/silverback.svg" alt="Silverbacklogo" />
-    <link rel="icon" type="image/svg+xml" href="/src/silverback.svg" />
     <h1>The Silverback League</h1>
     <AuthProvider>
       <BrowserRouter>

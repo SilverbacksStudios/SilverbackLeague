@@ -50,7 +50,7 @@ export default function Home() {
       <button className="button" onClick={createPlayer}>
         Add Silverback
       </button>
-      <div>
+      <div class="logout">
         <button className="logoutButton" onClick={auth.logout}>
           Logout
         </button>

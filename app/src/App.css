@@ -2,10 +2,17 @@
   margin-top: 5rem;
   text-align: center;
 }
+:root {
+  display: grid;
+  justify-content: center;
+}
+
 body {
   
   display:flex; 
   flex-direction:column;  
+  width: 100%;
+  height: 100%;
 }
 .bg-image {
   /* The image used */
@@ -39,23 +46,6 @@ h1 {
   font-family: 'Indie Flower', cursive;
 }
 
-footer {
-  height: 10px;
-  flex-shrink: 0;
-  text-align: center;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  position: bottom;
-  background-color:   #6f6f72;
-  font-size: large;
-  padding: 2%;
-  border-radius: 5px;
-  opacity: 0.7;
-  margin-top:auto; 
-
-
-}
 
 
 img {
@@ -126,7 +116,11 @@ input {
   will-change: box-shadow, transform;
   font-size: 18px;
 }
+form {
+  display: grid;
+  justify-content: center;
 
+}
 .button:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
@@ -214,7 +208,16 @@ a:active {
   will-change: box-shadow, transform;
   font-size: 18px;
 }
-
+div.logout{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+div.logodiv{
+  display: grid;
+    justify-content: end;
+}
 .logoutButton:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }

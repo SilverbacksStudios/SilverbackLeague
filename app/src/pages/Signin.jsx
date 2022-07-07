@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { useAuth } from "./Auth";
+import "../App.css";
 
 const SignIn = () => {
   const auth = useAuth();
@@ -39,7 +40,9 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type={"submit"}>Sign In</button>
+        <button className="button" type={"submit"}>
+          Sign In
+        </button>
       </form>
     </Layout>
   );

@@ -1,11 +1,15 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import { supabase } from "../Database/supabase";
+import Layout from "../components/Layout";
+import { useAuth } from "./Auth";
 
 export default function Home() {
   const [players, setPlayers] = useState([]);
   const [player, setPlayer] = useState({ name: "", points: "" });
   const { name, points } = player;
+
+  const auth = useAuth();
 
   useEffect(() => {
     fetchPlayers();
@@ -43,10 +47,15 @@ export default function Home() {
         value={name}
         onChange={(e) => setPlayer({ ...player, name: e.target.value })}
       />
-
       <button className="button" onClick={createPlayer}>
         Add Silverback
       </button>
+      <div>
+        <button className="logoutButton" onClick={auth.logout}>
+          Logout
+        </button>
+      </div>
+
       <div className="Players">
         {players
           .sort((a, b) => b.points - a.points)

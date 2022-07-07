@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../pages/Auth";
+import "../App.css";
 
 const Layout = ({ children }) => {
   const auth = useAuth();

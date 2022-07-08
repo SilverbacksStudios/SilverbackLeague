@@ -14,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.render(
   <Fragment>
+    <div className="bg-image">≤</div>
     <ToastContainer />
     <h1>The Silverback League</h1>
     <AuthProvider>

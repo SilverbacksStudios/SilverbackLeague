@@ -31,12 +31,14 @@ const SignIn = () => {
       <h1>Sign In</h1>
       <form className="form" onSubmit={handleSignIn}>
         <input
+          className="inputSignin"
           placeholder="Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="inputSignin"
           placeholder="Password"
           type="password"
           value={password}

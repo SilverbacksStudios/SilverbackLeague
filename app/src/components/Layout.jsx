@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
     <div>
       <header>
         <div className="signinScreen">
-          <Link to={"/Home"}>Home</Link>
+          <Link className="homeButton" to={"/Home"}>
+            Home
+          </Link>
 
           {auth.user ? (
             <button className="logoutButton" onClick={auth.logout}>

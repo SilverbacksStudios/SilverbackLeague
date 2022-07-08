@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import Home from "./pages/Home";
 import Startpage from "./pages/startPage";
 import Createuser from "./pages/Createuser";
@@ -8,9 +9,13 @@ import SignIn from "./pages/Signin";
 import { AuthProvider } from "./pages/Auth";
 import ProtectedRoute from "./components/Protectedroutes";
 import { Fragment } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.render(
   <Fragment>
+    <div className="bg-image">≤</div>
+    <ToastContainer />
     <h1>The Silverback League</h1>
     <AuthProvider>
       <BrowserRouter>

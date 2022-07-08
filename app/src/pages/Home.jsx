@@ -42,14 +42,16 @@ export default function Home() {
 
   return (
     <div className="App">
-      <input
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setPlayer({ ...player, name: e.target.value })}
-      />
-      <button className="button" onClick={createPlayer}>
-        Add Silverback
-      </button>
+      <div className="fixHome">
+        <input
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setPlayer({ ...player, name: e.target.value })}
+        />
+        <button className="button" onClick={createPlayer}>
+          Add Silverback
+        </button>
+      </div>
       <div class="logout">
         <button className="logoutButton" onClick={auth.logout}>
           Logout

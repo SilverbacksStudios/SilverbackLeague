@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { useAuth } from "./Auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const createUser = () => {
   const auth = useAuth();
@@ -14,10 +16,10 @@ const createUser = () => {
     const createUser = await auth.signUp(email, password);
 
     if (createUser.error) {
-      setMessage(createUser.error.message);
-    } else {
-      setMessage("Login link has beent sent.");
+      toast.error(createUser.error.message);
+      return;
     }
+    toast.success("User has been created");
 
     setEmail("");
     setPassword("");
@@ -30,12 +32,14 @@ const createUser = () => {
 
       <form onSubmit={handleCreateuser}>
         <input
+          className="inputSignin"
           placeholder="Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="inputSignin"
           placeholder="Password"
           type="password"
           value={password}

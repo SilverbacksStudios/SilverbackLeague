@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { useAuth } from "./Auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../App.css";
 
 const SignIn = () => {
@@ -11,32 +13,32 @@ const SignIn = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+    setEmail("");
+    setPassword("");
 
     const signIn = await auth.login(email, password);
 
     if (signIn.error) {
-      setMessage(signIn.error.message);
-    } else {
-      setMessage("You are now logged in.");
+      toast.error(signIn.error.message);
+      return;
     }
-
-    setEmail("");
-    setPassword("");
+    toast.success("You are now logged in", { authClose: false });
   };
 
   return (
     <Layout>
       {message && message}
       <h1>Sign In</h1>
-
       <form className="form" onSubmit={handleSignIn}>
         <input
+          className="inputSignin"
           placeholder="Email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="inputSignin"
           placeholder="Password"
           type="password"
           value={password}

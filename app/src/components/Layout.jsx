@@ -9,20 +9,17 @@ const Layout = ({ children }) => {
   return (
     <div>
       <header>
-        <ul>
-          <li>
-            <Link to={"/Home"}>Home</Link>
-          </li>
+        <div className="signinScreen">
+          <Link to={"/Home"}>Home</Link>
+
           {auth.user ? (
-            <li>
-              <button onClick={auth.logout}>Logout</button>
-            </li>
+            <button className="logoutButton" onClick={auth.logout}>
+              Logout
+            </button>
           ) : (
-            <li>
-              <Link to={"/Createuser"}>Sign up</Link>
-            </li>
+            <Link to={"/Createuser"}>Sign up</Link>
           )}
-        </ul>
+        </div>
       </header>
       <main>{children}</main>
     </div>

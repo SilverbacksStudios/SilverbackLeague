@@ -231,3 +231,7 @@ div.logodiv{
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
+.signinScreen{
+  display: flex;
+  justify-content: space-evenly;
+}

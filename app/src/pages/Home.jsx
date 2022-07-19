@@ -39,7 +39,6 @@ export default function Home() {
 
     fetchPlayers();
   }
-
   return (
     <div className="App">
       <div className="fixHome">

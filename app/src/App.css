@@ -13,7 +13,7 @@ body {
   background-color: black;
 }
 .bg-image {
-  background-image: url(/Harambe.png);
+  background-image: url(./Assets/Harambe.png);
   filter: blur(8px);
   -webkit-filter: blur(8px);
   height: 100%;

@@ -21,10 +21,10 @@ const SignIn = () => {
     const signIn = await auth.login(email, password);
 
     if (signIn.error) {
-      toast.error(signIn.error.message);
+      toast.error(signIn.error.message, { theme: "dark" });
       return;
     }
-    toast.success("You are now logged in", { authClose: false });
+    toast.success("You are now logged in", { theme: "dark" });
     navigate("/Home");
   };
 

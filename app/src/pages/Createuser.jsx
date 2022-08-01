@@ -16,10 +16,10 @@ const createUser = () => {
     const createUser = await auth.signUp(email, password);
 
     if (createUser.error) {
-      toast.error(createUser.error.message);
+      toast.error(createUser.error.message, { theme: "dark" });
       return;
     }
-    toast.success("User has been created");
+    toast.success("User has been created", { theme: "dark" });
 
     setEmail("");
     setPassword("");

@@ -6,6 +6,7 @@ import Createuser from "./pages/Createuser";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignIn from "./pages/Signin";
+import { Oldseasons } from "./pages/Seasons/Oldseasons";
 import { AuthProvider } from "./pages/Auth";
 import ProtectedRoute from "./components/Protectedroutes";
 import { Fragment } from "react";
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Route index element={<Startpage />} />
           <Route path={"Createuser"} element={<Createuser />} />
           <Route path={"SignIn"} element={<SignIn />} />
+          <Route path={"Oldseasons"} element={<Oldseasons />} />
           <Route
             path={"home"}
             element={

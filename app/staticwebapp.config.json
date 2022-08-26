@@ -16,6 +16,10 @@
       {
         "route": "/logout",
         "redirect": "/.auth/logout"
+      },
+      {
+        "route": "/oldseasons",
+        "redirect": "/.Seasons/Oldseasons"
       }
     ],
     "navigationFallback": {

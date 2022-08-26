@@ -1,8 +1,8 @@
-import "../App.css";
+import "../../App.css";
 import { useState, useEffect } from "react";
-import { supabase } from "../Database/supabase";
+import { supabase } from "../../Database/supabase";
 
-export default function startpage() {
+export function Oldseasons() {
   const [players, setPlayers] = useState([]);
   const [player, setPlayer] = useState({ name: "", points: "" });
   const { name, points } = player;
@@ -12,7 +12,7 @@ export default function startpage() {
   }, []);
 
   async function fetchPlayers() {
-    const { data } = await supabase.from("players_season_1").select();
+    const { data } = await supabase.from("players_season_2").select();
 
     setPlayers(data);
   }

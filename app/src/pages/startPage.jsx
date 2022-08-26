@@ -5,14 +5,14 @@ import { supabase } from "../Database/supabase";
 export default function startpage() {
   const [players, setPlayers] = useState([]);
   const [player, setPlayer] = useState({ name: "", points: "" });
-  const { name, points } = players_season_1;
+  const { name, points } = players;
 
   useEffect(() => {
     fetchPlayers();
   }, []);
 
   async function fetchPlayers() {
-    const { data } = await supabase.from("players_season_1").select();
+    const { data } = await supabase.from("players").select();
 
     setPlayers(data);
   }
@@ -29,6 +29,7 @@ export default function startpage() {
             <p>{player.points}</p>
           </div>
         ))}
+      <a href="./Oldseasons">Old Seasons</a>
     </div>
   );
 }

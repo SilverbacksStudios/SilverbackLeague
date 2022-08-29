@@ -5,7 +5,7 @@ import { supabase } from "../Database/supabase";
 export default function startpage() {
   const [players, setPlayers] = useState([]);
   const [player, setPlayer] = useState({ name: "", points: "" });
-  const { name, points } = players_season_1;
+  const { name, points } = player;
 
   useEffect(() => {
     fetchPlayers();

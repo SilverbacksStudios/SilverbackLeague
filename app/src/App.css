@@ -156,6 +156,7 @@ a {
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
+  margin-right: 16px; 
 }
 
 a:focus {

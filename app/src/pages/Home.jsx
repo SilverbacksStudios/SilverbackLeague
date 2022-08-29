@@ -16,14 +16,14 @@ export default function Home() {
   }, []);
 
   async function fetchPlayers() {
-    const { data } = await supabase.from("players_season_1").select();
+    const { data } = await supabase.from("players").select();
 
     setPlayers(data);
   }
 
   async function createPlayer() {
     await supabase
-      .from("players_season_1")
+      .from("players")
       .insert([{ name, points: 0 }])
       .single();
 
@@ -31,11 +31,11 @@ export default function Home() {
     fetchPlayers();
   }
 
-  async function addPoints(players_season_1, event) {
+  async function addPoints(players, event) {
     await supabase
-      .from("players_season_1")
-      .update({ points: players_season_1.points + 1 })
-      .match({ id: players_season_1.id });
+      .from("players")
+      .update({ points: players.points + 1 })
+      .match({ id: players.id });
 
     fetchPlayers();
   }

@@ -18,9 +18,6 @@ export function Oldseasons() {
   }
   return (
     <div className="Playersstart">
-      <div>
-        <a href="./SignIn">Logga in</a>
-      </div>
       {players
         .sort((a, b) => b.points - a.points)
         .map((player) => (

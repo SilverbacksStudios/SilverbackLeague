@@ -31,24 +31,24 @@ const SignIn = () => {
   return (
     <Layout>
       {message && message}
-      <h1>Sign In</h1>
+      <h1>Logga in</h1>
       <form className="form" onSubmit={handleSignIn}>
         <input
           className="inputSignin"
-          placeholder="Email"
+          placeholder="Epost"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           className="inputSignin"
-          placeholder="Password"
+          placeholder="Lösenord"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="button" type={"submit"}>
-          Sign In
+          Logga in
         </button>
       </form>
     </Layout>

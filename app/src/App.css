@@ -34,6 +34,7 @@ h1 {
   margin-top: 1rem;
   text-align: center;
   font-family: 'Indie Flower', cursive;
+  color: #fff;
 }
 
 img {
@@ -47,7 +48,7 @@ img {
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 2rem;
   color: #ffffff;
-  background-color:   #6f6f72;
+  background-color:   #9aa50187;
   font-size: large;
   padding: 2%;
   border-radius: 25px;

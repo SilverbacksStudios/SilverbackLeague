@@ -8,21 +8,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <header>
-        <div className="signinScreen">
-          <Link className="homeButton" to={"/Home"}>
-            Home
-          </Link>
-
-          {auth.user ? (
-            <button className="logoutButton" onClick={auth.logout}>
-              Logout
-            </button>
-          ) : (
-            <Link to={"/Createuser"}>Sign up</Link>
-          )}
-        </div>
-      </header>
+      <header></header>
       <main>{children}</main>
     </div>
   );

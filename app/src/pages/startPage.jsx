@@ -18,10 +18,6 @@ export default function startpage() {
   }
   return (
     <div className="Playersstart">
-      <div>
-        <a href="./SignIn">Logga in</a>
-        <a href="./Oldseasons">Old Seasons</a>
-      </div>
       {players
         .sort((a, b) => b.points - a.points)
         .map((player) => (

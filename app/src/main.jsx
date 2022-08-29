@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Startpage from "./pages/startPage";
 import Createuser from "./pages/Createuser";
 import ReactDOM from "react-dom";
+import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignIn from "./pages/Signin";
 import { Oldseasons } from "./pages/Seasons/Oldseasons";
@@ -17,7 +18,7 @@ ReactDOM.render(
   <Fragment>
     <div className="bg-image"></div>
     <ToastContainer />
-    <h1>The Silverback League</h1>
+    <Navbar />
     <AuthProvider>
       <BrowserRouter>
         <Routes>

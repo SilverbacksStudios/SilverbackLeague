@@ -34,3 +34,5 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+
+//Lägg in login och logout knapp här ta bort från andra ställen

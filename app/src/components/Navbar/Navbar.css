@@ -58,7 +58,7 @@ cursor: pointer;
     .nav-menu{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         height: 500px;
         position: absolute;
         top:80px;
@@ -69,7 +69,7 @@ cursor: pointer;
     }
     .nav-menu.active{
         background: rgba(255, 255, 255, 0);
-        left:0;
+        left:auto;
         opacity: 1;
         transition: all 0.5s ease;
     }

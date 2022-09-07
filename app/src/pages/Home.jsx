@@ -43,7 +43,7 @@ export default function Home() {
     <div className="App">
       <div className="fixHome">
         <input
-          placeholder="Name"
+          placeholder="Namn"
           value={name}
           onChange={(e) => setPlayer({ ...player, name: e.target.value })}
         />

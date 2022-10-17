@@ -21,10 +21,18 @@ const SignIn = () => {
     const signIn = await auth.login(email, password);
 
     if (signIn.error) {
-      toast.error(signIn.error.message, { theme: "dark" });
+      toast.error(signIn.error.message, {
+        theme: "dark",
+        hideProgressBar: true,
+        autoClose: 3000,
+      });
       return;
     }
-    toast.success("You are now logged in", { theme: "dark" });
+    toast.success("You are now logged in", {
+      theme: "dark",
+      hideProgressBar: true,
+      autoClose: 3000,
+    });
     navigate("/Home");
   };
 

@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <nav className="NavbarItems">
         <h1 className="navbar-logo">
-          Silverback League<i className="fab fa-react"></i>
+          Silverback League<i className="silverback"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
           <i

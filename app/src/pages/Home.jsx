@@ -9,6 +9,15 @@ export default function Home() {
   const [player, setPlayer] = useState({ name: "", points: "" });
   const { name, points } = player;
 
+  function matchCard() {
+    var results = document.getElementById("matchTabell");
+    if (results.style.display !== "none") {
+      results.style.display = "none";
+    } else {
+      results.style.display = "flex";
+    }
+  }
+
   const auth = useAuth();
 
   useEffect(() => {
@@ -51,12 +60,15 @@ export default function Home() {
           Add Silverback
         </button>
       </div>
-      <div class="logout">
-        <button className="logoutButton" onClick={auth.logout}>
-          Logout
+      <div className="match">
+        <button className="matchbutton" onClick={matchCard}>
+          Match Report
         </button>
       </div>
-
+      <div id="matchTabell">
+        <button className="matchbutton">Submit</button>
+      </div>
+      
       <div className="Players">
         {players
           .sort((a, b) => b.points - a.points)
@@ -64,15 +76,10 @@ export default function Home() {
             <div className="Player" key={players.id}>
               <h3>{player.name}</h3>
               <p>{player.points}</p>
-              <button
-                className="button"
-                onClick={(event) => addPoints(player, event)}
-              >
-                Add Bananas
-              </button>
             </div>
           ))}
       </div>
     </div>
   );
 }
+//onClick={(event) => addPoints(player, event)}

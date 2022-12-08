@@ -3,18 +3,31 @@ import { useState, useEffect } from "react";
 import { supabase } from "../Database/supabase";
 import Layout from "../components/Layout";
 import { useAuth } from "./Auth";
+import { useRef } from "react";
 
 export default function Home() {
   const [players, setPlayers] = useState([]);
   const [player, setPlayer] = useState({ name: "", points: "" });
   const { name, points } = player;
+  const ref = useRef(null);
+  
 
   function matchCard() {
-    var results = document.getElementById("matchTabell");
+    const results = ref.current;
     if (results.style.display !== "none") {
       results.style.display = "none";
     } else {
       results.style.display = "flex";
+    }
+  }
+
+  function addPoints(player, event) {
+    // Get the number of points to add from the event
+    const points = event.points;
+  
+    // Use a for loop to add the points to the player's score
+    for (let points = 0; i < points; points++) {
+      player.score++;
     }
   }
 
@@ -65,7 +78,13 @@ export default function Home() {
           Match Report
         </button>
       </div>
-      <div id="matchTabell">
+      <div id="matchTabell" className="matchTabell" style={{ display: 'none' }} ref={ref}>
+        <input title="Första plats i finalen"
+        placeholder="Första plats"
+         placeOne></input>
+        <input title="Andra plats i finalen"
+        placeholder="Andra plats"
+         placeTwo></input>
         <button className="matchbutton">Submit</button>
       </div>
       

@@ -288,9 +288,13 @@ div.logodiv {
   align-items: center;
 }
 .matchTabell{
-  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .matchbutton {
+  
   align-items: center;
   appearance: none;
   background-color: #fcfcfd;
@@ -301,7 +305,7 @@ div.logodiv {
   box-sizing: border-box;
   color: #36395a;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;

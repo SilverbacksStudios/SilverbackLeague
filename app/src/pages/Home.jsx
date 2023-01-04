@@ -10,7 +10,6 @@ export default function Home() {
   const [player, setPlayer] = useState({ name: "", points: "" });
   const { name, points } = player;
   const ref = useRef(null);
-  
 
   function matchCard() {
     const results = ref.current;
@@ -24,7 +23,7 @@ export default function Home() {
   function addPoints(player, event) {
     // Get the number of points to add from the event
     const points = event.points;
-  
+
     // Use a for loop to add the points to the player's score
     for (let points = 0; i < points; points++) {
       player.score++;
@@ -53,11 +52,20 @@ export default function Home() {
     fetchPlayers();
   }
 
-  async function addPoints(players, event) {
+  async function firstPoints(_players, event) {
+    await supabase
+      .from("players")
+      .update({ points: players.points + 3 })
+      .match({ id: players.id });
+    fetchPlayers();
+  }
+
+  async function secPoints(players, event) {
     await supabase
       .from("players")
       .update({ points: players.points + 1 })
       .match({ id: players.id });
+    setPoints({ name: "", points: +1 });
 
     fetchPlayers();
   }
@@ -78,16 +86,31 @@ export default function Home() {
           Match Report
         </button>
       </div>
-      <div id="matchTabell" className="matchTabell" style={{ display: 'none' }} ref={ref}>
-        <input title="Första plats i finalen"
-        placeholder="Första plats"
-         placeOne></input>
-        <input title="Andra plats i finalen"
-        placeholder="Andra plats"
-         placeTwo></input>
-        <button className="matchbutton">Submit</button>
+      <div
+        id="matchTabell"
+        className="matchTabell"
+        style={{ display: "none" }}
+        ref={ref}
+      >
+        <input
+          title="Första plats i finalen"
+          placeholder="Första plats"
+          onChange={(e) => setPlayer({ ...player, points: firstPoints })}
+        ></input>
+        <input
+          title="Andra plats i finalen"
+          placeholder="Andra plats"
+          placeTwo
+          onChange={(e) => setPlayer({ ...player, points: secPoints })}
+        ></input>
+        <button
+          className="matchbutton"
+          onClick={(event) => addPoints(firstPoints, secPoints, event)}
+        >
+          Submit
+        </button>
       </div>
-      
+
       <div className="Players">
         {players
           .sort((a, b) => b.points - a.points)

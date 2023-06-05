@@ -1,3 +1,3 @@
 # Silverback League
 
-![image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.citybeat.com%2Farts%2Fcincinnati-zoos-harambe-is-trending-on-twitter-again-on-the-fourth-anniversary-of-his-death-12165858&psig=AOvVaw2OzjBi6LN5fHS4Kq0xJrbS&ust=1686053378279000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCLj2mreMrP8CFQAAAAAdAAAAABAE)
+![image](https://media1.citybeat.com/citybeat/imager/u/slideshow/12049766/screen_shot_2020_05_28_at_1.37.32_pm.5ecff6e6cf078.png)
